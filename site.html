@@ -1,0 +1,350 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+   
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Engineer's Map</title>
+</head>
+
+<body>
+   <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.png" width="50px" alt="Logo">
+            </div>
+            
+
+            <h2>The Engineer's Map</h2>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <!-- Меню с id для манипуляции через JavaScript -->
+        <ul id="menu-list">
+            <li><a href="site.php">Main page</a></li>
+            <li><a href="quiz.php">Engineering Quiz</a></li>
+            <li><a href="types.php">Engineering Types</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="projects.php">Projects</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Discover the World of Engineering</h1>
+            <h3> Engineering is the art of solving real-world problems through science, logic, and creativity.From microchips to bridges, from medical implants to satellites — engineers shape the future.
+</h3>
+        </section>
+
+    </div> 
+
+    <div class="text">
+        <p>This website was created to help you explore the diversity of engineering fields.
+Here, you’ll find concise yet informative articles about the most exciting branches of engineering — from biomedical to aerospace.
+
+Learn what engineers do, where they work, what skills they need, and how to choose the path that’s right for you.
+</p>
+
+    </div>
+    <h2>Here are just a few areas you can explore: </h2>
+    <div class="engineering-list">
+  <div class="card">
+    <a href="mechanical.php">🛠 Mechanical Engineering</a></div>
+  <div class="card"><a href="electrical.php">⚡ Electrical Engineering</a></div>
+  <div class="card"><a href="computer.php">💻 Computer Engineering</a></div>
+  <div class="card"><a href="biomedical.php">🧬 Biomedical Engineering</a></div>
+  <div class="card"><a href="aerospace.php">🚀 Aerospace Engineering</a></div>
+  <div class="card"><a href="nuclear.php">☢ Nuclear Engineering</a></div>
+  <div class="card"><a href="chemical.php">🧪 Chemical Engineering</a></div>
+  <div class="card"><a href="civil.php">🏗 Civil Engineering</a></div>
+  <div class="card"><a href="environmental.php">🌱 Environmental Engineering</a></div>
+  </div>
+
+  <div class="q">
+  <h4>Not sure where to start? Take a short quiz to find out which engineering field suits you best!</h4></div>
+
+  
+     <!-- Button -->
+    <div class="btn1">
+        <a href="#" class="btn">Take the Quiz</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 ARUZHAN'SSITE. Все права защищены.</p>
+    </footer>
+
+  
+
+    
+    <style>
+       
+        a{
+            text-decoration: none;
+        }
+        /* Стиль для меню */
+        body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f2f5;
+      color: #333;
+      font-size: 20px;
+    }
+
+    header {
+      background-color: #6200ea;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      margin-right: 15px;
+    }
+
+    
+    h1, h2, h3 {
+      text-align: center;
+      margin: 10px 0;
+    }
+
+   
+    .hero {
+      background: white;
+      padding: 40px 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.5em;
+      color: #6200ea;
+    }
+
+    nav.navbar {
+      background-color: #3700b3;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 15px 10px;
+      display: block;
+      transition: background-color 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #4b00c7;
+    }
+        /* Иконка меню */
+        .menu {
+            display: block;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+        }
+
+        /* На мобильных устройствах */
+        @media only screen and (max-width: 800px) {
+            .menu {
+                display: block; /* Иконка меню видна на мобильных */
+            }
+
+            nav ul {
+                display: none; /* Скрыто по умолчанию на мобильных */
+            }
+
+            nav ul.active {
+                display: block; /* Показываем меню, когда оно активировано */
+            }
+        }
+
+        /* На десктопе меню всегда видно */
+        @media only screen and (min-width: 801px) {
+            nav ul {
+                display: flex;
+                justify-content: space-around;
+                position: static;
+                background: transparent;
+                width: auto;
+            }
+
+            .menu {
+                display: none; /* Иконка меню скрыта на десктопе */
+            }
+        }
+        .q{
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        .engineering-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 30px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.card {
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 16px 24px;
+  font-size: 20px;
+  background-color: #f9f9f9;
+  transition: 0.3s;
+  cursor: pointer;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.05)
+ 
+}
+
+.card:hover {
+ box-shadow: 0 8px 25px rgba(55, 0, 179, 0.3);
+  background-color: #fff;
+  transform: scale(1.03);
+  border-color: #3700b3;
+}
+
+         
+        h4{
+            font-weight: normal;
+        }
+        .text{
+            font-size: 20px;
+        }
+        
+       
+
+
+        .small-cont {
+            max-width: 1080px;
+            margin: auto;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 70px;
+        }
+
+        
+
+        body {
+            background-color: rgb(240, 240, 240);
+            color: rgb(40, 40, 40);
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        h1, h3 {
+            text-align: center;
+            color: rgb(40, 40, 40);
+        }
+ h1{
+    margin-top: 20px;
+ }
+        h2 {
+            margin: 20px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            background-color: #4b00c7;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar li {
+            margin: 0 15px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            display: block;
+            text-align: center;
+        }
+
+        .navbar a:hover {
+            background-color: #3700b3;
+        }
+
+      
+
+        .btn {
+            display: inline-block;
+            background-color: #4b00c7;
+            color: white;
+            padding: 10px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            text-align: center;
+            line-height: 1.5;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn1 {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: #3700b3;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #4b00c7;
+        }
+       .hero {
+   
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 45px;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    margin: 20px 0 10px;
+    word-wrap: break-word;
+}
+    </style>
+</body>
+
+</html>

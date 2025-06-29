@@ -1,0 +1,667 @@
+<?php
+$engineering_types = [
+    "A" => [
+        "title" => "Mechanical Engineering",
+        "description" => "You are a hands-on problem solver who loves understanding how things move and work. You're practical, analytical, and love working with machines.",
+        "link" => "mechanical.php"
+    ],
+    "B" => [
+        "title" => "Electrical Engineering",
+        "description" => "You are curious about how electricity powers the world. You enjoy tackling complex systems and creating efficient electronic solutions.",
+        "link" => "electrical.php"
+    ],
+    "C" => [
+        "title" => "Computer Engineering",
+        "description" => "You are logical and tech-savvy, with a passion for innovation. You enjoy designing smart systems and solving digital problems.",
+        "link" => "computer.php"
+    ],
+    "D" => [
+        "title" => "Biomedical Engineering",
+        "description" => "You care deeply about improving human health through technology. You’re compassionate, curious, and fascinated by the human body.",
+        "link" => "biomedical.php"
+    ],
+    "E" => [
+        "title" => "Aerospace Engineering",
+        "description" => "You dream big and aim high. Fascinated by flight and space, you enjoy solving complex challenges and pushing the boundaries of what's possible.",
+        "link" => "aerospace.php"
+    ],
+    "F" => [
+        "title" => "Nuclear Engineering",
+        "description" => "You’re calm under pressure and drawn to powerful science. You enjoy working with energy, safety systems, and atomic-level innovation.",
+        "link" => "nuclear.php"
+    ],
+    "G" => [
+        "title" => "Chemical Engineering",
+        "description" => "You’re inventive and precise, loving the transformation of raw materials into useful products. Chemistry and innovation are your strengths.",
+        "link" => "chemical.php"
+    ],
+    "H" => [
+        "title" => "Civil Engineering",
+        "description" => "You enjoy building things that last. You’re practical, organized, and motivated by improving society’s infrastructure and safety.",
+        "link" => "civil.php"
+    ],
+    "I" => [
+        "title" => "Environmental Engineering",
+        "description" => "You care about nature and want to create a sustainable future. You're thoughtful, scientifically minded, and passionate about the planet.",
+        "link" => "environmental.php"
+    ]
+];
+
+
+$questions = [
+    "Which subject did you enjoy most in school?" => [
+        "A) Mechanics and physics",
+        "B) Circuits and electronics",
+        "C) Computers and programming",
+        "D) Biology and medicine",
+        "E) Space and flight",
+        "F) Atomic theory and energy",
+        "G) Chemistry and reactions",
+        "H) Geometry and structures",
+        "I) Ecology and sustainability"
+    ],
+    "What kind of problems do you like solving?" => [
+        "A) How machines can work more efficiently",
+        "B) How to design electronic systems",
+        "C) How to optimize software or hardware",
+        "D) How to improve healthcare using technology",
+        "E) How to build things that fly",
+        "F) How to control nuclear energy safely",
+        "G) How to create new materials or fuels",
+        "H) How to build infrastructure like bridges and roads",
+        "I) How to clean and protect the environment"
+    ],
+    "Choose your ideal workplace:" => [
+        "A) Machine shop or product design lab",
+        "B) Electronics lab",
+        "C) Software development office",
+        "D) Hospital or medical device lab",
+        "E) Aerospace or aviation facility",
+        "F) Nuclear power plant or lab",
+        "G) Chemical plant or research lab",
+        "H) Construction site or civil firm",
+        "I) Environmental field station or NGO"
+    ],
+    "What is your favorite tool?" => [
+        "A) Wrench or CAD software",
+        "B) Oscilloscope or circuit simulator",
+        "C) Laptop and debugger",
+        "D) Medical sensors or prosthetic kits",
+        "E) Wind tunnel or flight simulator",
+        "F) Radiation detector",
+        "G) Beaker or chemical reactor",
+        "H) Surveying tools",
+        "I) Water or air quality sensor"
+    ],
+    "What inspires you most?" => [
+        "A) Moving parts working together",
+        "B) Electricity powering the world",
+        "C) Smart, connected systems",
+        "D) Saving lives with science",
+        "E) Space exploration",
+        "F) Safe, powerful energy",
+        "G) Transforming raw materials",
+        "H) Designing for people and safety",
+        "I) Protecting nature and future generations"
+    ],
+    "Which project sounds the most exciting?" => [
+        "A) Designing an engine",
+        "B) Creating a smart home device",
+        "C) Building a computer system",
+        "D) Developing an artificial organ",
+        "E) Building a satellite",
+        "F) Designing a fusion reactor",
+        "G) Inventing biodegradable plastic",
+        "H) Designing a skyscraper",
+        "I) Restoring a polluted river"
+    ],
+    "What kind of impact do you want to make?" => [
+        "A) Improve efficiency in industry",
+        "B) Power modern technology",
+        "C) Advance digital innovation",
+        "D) Improve human health",
+        "E) Help explore the universe",
+        "F) Develop sustainable energy",
+        "G) Revolutionize materials science",
+        "H) Build lasting infrastructure",
+        "I) Fight climate change"
+    ],
+    "What’s your favorite kind of experiment?" => [
+        "A) Testing mechanical systems",
+        "B) Measuring electrical output",
+        "C) Running code and debugging",
+        "D) Testing medical technology",
+        "E) Simulating flight conditions",
+        "F) Monitoring radiation levels",
+        "G) Mixing chemicals and testing results",
+        "H) Stress testing structures",
+        "I) Environmental sampling"
+    ],
+    "Which club would you join in school?" => [
+        "A) Robotics or mechanical club",
+        "B) Electronics or circuit design",
+        "C) Programming or hackathon team",
+        "D) Biology or medical innovation",
+        "E) Rocketry or drone club",
+        "F) Nuclear science club",
+        "G) Chemistry club",
+        "H) Architecture or construction club",
+        "I) Eco or sustainability club"
+    ],
+    "What’s most important to you in your work?" => [
+        "A) Precision and movement",
+        "B) Flow and connectivity",
+        "C) Logic and systems",
+        "D) Healing and innovation",
+        "E) Discovery and adventure",
+        "F) Safety and control",
+        "G) Creativity and transformation",
+        "H) Stability and usefulness",
+        "I) Balance and preservation"
+    ],
+    "What do you like building?" => [
+        "A) Machines and gears",
+        "B) Circuits and motors",
+        "C) Programs and devices",
+        "D) Prosthetics and diagnostic tools",
+        "E) Drones and space vehicles",
+        "F) Energy generators",
+        "G) New materials",
+        "H) Roads and buildings",
+        "I) Green infrastructure"
+    ],
+    "What is your biggest strength?" => [
+        "A) Mechanical intuition",
+        "B) Analytical thinking",
+        "C) Logical problem solving",
+        "D) Empathy and precision",
+        "E) Creativity and curiosity",
+        "F) Calm under pressure",
+        "G) Focus and experimentation",
+        "H) Planning and coordination",
+        "I) Environmental awareness"
+    ],
+    "What would you invent?" => [
+        "A) Self-repairing machine",
+        "B) Wireless energy charger",
+        "C) Advanced computer chip",
+        "D) 3D-printed heart valve",
+        "E) Low-cost satellite system",
+        "F) Compact nuclear battery",
+        "G) CO₂-absorbing building material",
+        "H) Earthquake-proof building",
+        "I) Plastic-eating bacteria"
+    ],
+    "What is your dream internship?" => [
+        "A) Tesla or BMW (mechanical team)",
+        "B) Intel or Siemens (electrical dept.)",
+        "C) Google or NVIDIA",
+        "D) Medtronic or Johnson & Johnson",
+        "E) NASA or Boeing",
+        "F) ITER or Rosatom",
+        "G) BASF or Dow Chemical",
+        "H) Arup or Skanska",
+        "I) WWF or environmental agency"
+    ],
+    "Which challenge excites you most?" => [
+        "A) Making machines smarter and faster",
+        "B) Powering a smart city",
+        "C) Building next-gen computers",
+        "D) Solving medical problems",
+        "E) Designing spacecraft",
+        "F) Managing nuclear waste safely",
+        "G) Replacing fossil fuels",
+        "H) Building in extreme conditions",
+        "I) Saving endangered ecosystems"
+    ]
+];
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $scores = array_fill_keys(array_keys($engineering_types), 0);
+
+    foreach ($_POST as $key => $answer) {
+        if (isset($scores[$answer])) {
+            $scores[$answer]++;
+        }
+    }
+
+       // Redirect to result page with the result in the URL
+    arsort($scores);
+$top = array_key_first($scores);
+
+// ❌ Wrong: $top_engineer is a string like "Mechanical Engineering"
+header("Location: result.php?type=" . urlencode($top));
+exit();
+
+
+} else 
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Engineer's Map</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.png" width="50px" alt="Logo">
+            </div>
+            
+
+            <h2>The Engineer's Map</h2>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <!-- Меню с id для манипуляции через JavaScript -->
+        <ul id="menu-list">
+            <li><a href="site.php">Main page</a></li>
+            <li><a href="quiz.php">Engineering Quiz</a></li>
+            <li><a href="types.php">Engineering Types</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="registration.php">Projects</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <h1>What Type of Engineer Are You?</h1>
+            
+        </section>
+
+    </div> 
+    
+    
+
+    <div class="oz"><form method="post">
+    <?php
+    $q_number = 0;
+    foreach ($questions as $question => $answers) {
+        echo "<h2>" . ($q_number + 1) . ". $question</h2>";
+        foreach ($answers as $text) {
+            $option = substr($text, 0, 1); // A, B, C и т.д.
+            $id = "q{$q_number}_{$option}";
+            echo "
+            <div class='answer-option' onclick=\"selectOption('$id')\">
+                <input type='radio' name='q$q_number' id='$id' value='$option' required>
+                <label for='$id'>$text</label>
+            </div>";
+        }
+        $q_number++;
+        echo "<br>";
+    }
+    ?></div>
+    <div class="qw">
+  <input type="submit" value="See My Result" class="btn">
+</div>
+
+
+
+
+</form>
+    
+<footer>
+        <p>&copy; 2025 ARUZHAN'SSITE. Все права защищены.</p>
+    </footer>
+
+    <style>
+        .qw {
+  text-align: center;           /* Центрирование кнопки */
+  margin-top: 30px;             /* Отступ сверху */
+}
+
+
+        .btn {
+            display: inline-block;
+            background-color: #4b00c7;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            text-align: center;
+            line-height: 1.5;
+            transition: background-color 0.3s ease;
+            font-weight: 500px;
+            font-size: 26px;
+        }
+
+
+        .oz{
+            margin:  0 auto;
+            width: 80%;
+            background-color: white;
+            font-size: 25px;
+            border-radius: 20px;
+            border: 3px solid #3700b3 ;
+        }
+        .oz h2{
+            margin: 10px;
+            color:#6200ea;
+        }
+       /* Скрываем стандартный radio */
+.answer-option input[type="radio"] {
+    display: none;
+}
+
+/* Стилизация метки (label) как кастомный круг */
+.answer-option label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Внешний круг (неактивный) */
+.answer-option label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #6200ea;
+    border-radius: 50%;
+    background-color: white;
+    transition: background-color 0.2s ease;
+}
+
+/* Закрашенный круг при выборе */
+.answer-option input[type="radio"]:checked + label::before {
+    background-color: #6200ea;
+}
+
+        a{
+            text-decoration: none;
+        }
+        /* Стиль для меню */
+        body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f2f5;
+      color: #333;
+      font-size: 20px;
+    }
+
+    header {
+      background-color: #6200ea;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      margin-right: 15px;
+    }
+
+    
+     h2, h3 {
+      text-align: center;
+      margin: 10px 0;
+    }
+
+   .hero h1 {
+    width:80%;
+    margin: 0 auto;
+    font-size: 3rem;
+    text-align: center;
+    
+    color: #ffffff;
+    background: linear-gradient(135deg, #6200ea,rgb(155, 40, 250));
+    padding: 20px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Центрирование блока hero */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 60px 0;
+}
+
+
+    nav.navbar {
+      background-color: #3700b3;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 15px 10px;
+      display: block;
+      transition: background-color 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #4b00c7;
+    }
+        /* Иконка меню */
+        .menu {
+            display: block;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+        }
+
+        /* На мобильных устройствах */
+        @media only screen and (max-width: 800px) {
+            .menu {
+                display: block; /* Иконка меню видна на мобильных */
+            }
+
+            nav ul {
+                display: none; /* Скрыто по умолчанию на мобильных */
+            }
+
+            nav ul.active {
+                display: block; /* Показываем меню, когда оно активировано */
+            }
+        }
+
+        /* На десктопе меню всегда видно */
+        @media only screen and (min-width: 801px) {
+            nav ul {
+                display: flex;
+                justify-content: space-around;
+                position: static;
+                background: transparent;
+                width: auto;
+            }
+
+            .menu {
+                display: none; /* Иконка меню скрыта на десктопе */
+            }
+        }
+        .q{
+            font-size: 20px;
+            text-align: center;
+        }
+        
+      
+
+         
+        h4{
+            font-weight: normal;
+        }
+        .text{
+            font-size: 20px;
+        }
+        
+       
+
+
+        .small-cont {
+            max-width: 1080px;
+            margin: auto;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 70px;
+        }
+
+        
+   
+
+
+        body {
+            background-color: rgb(240, 240, 240);
+            color: rgb(40, 40, 40);
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        h1, h3 {
+            text-align: center;
+            color: rgb(40, 40, 40);
+        }
+ h1{
+    margin-top: 20px;
+ }
+        h2 {
+            margin: 20px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            background-color: #4b00c7;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar li {
+            margin: 0 15px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            display: block;
+            text-align: center;
+        }
+
+        .navbar a:hover {
+            background-color: #3700b3;
+        }
+
+      
+
+        .btn1 {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: #3700b3;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #4b00c7;
+        }
+       .hero {
+   
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 45px;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    margin: 20px 0 10px;
+    word-wrap: break-word;
+}
+
+   
+    .answer-option {
+        display: flex;
+        align-items: center;
+        padding: 12px 15px;
+       
+        background-color: white;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .answer-option:hover {
+        background-color: #e0e8f0;
+        border-color: #3700b3;
+    }
+
+    .answer-option input[type="radio"] {
+        margin-right: 12px;
+        transform: scale(1.3);
+        cursor: pointer;
+    }
+
+
+    label {
+        cursor: pointer;
+    }
+</style>
+<script>
+    function selectOption(id) {
+        document.getElementById(id).checked = true;
+    }
+</script>
+
+
+
+</body>
+</html>
+
+<?php  ?>

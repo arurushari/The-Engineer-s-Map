@@ -1,0 +1,505 @@
+<?php
+$engineering_types = [
+    "A" => [
+        "title" => "Mechanical Engineering",
+        "description" => "You are a hands-on problem solver who loves understanding how things move and work. You're practical, analytical, and love working with machines.",
+        "link" => "mechanical.php"
+    ],
+    "B" => [
+        "title" => "Electrical Engineering",
+        "description" => "You are curious about how electricity powers the world. You enjoy tackling complex systems and creating efficient electronic solutions.",
+        "link" => "electrical.php"
+    ],
+    "C" => [
+        "title" => "Computer Engineering",
+        "description" => "You are logical and tech-savvy, with a passion for innovation. You enjoy designing smart systems and solving digital problems.",
+        "link" => "computer.php"
+    ],
+    "D" => [
+        "title" => "Biomedical Engineering",
+        "description" => "You care deeply about improving human health through technology. You’re compassionate, curious, and fascinated by the human body.",
+        "link" => "biomedical.php"
+    ],
+    "E" => [
+        "title" => "Aerospace Engineering",
+        "description" => "You dream big and aim high. Fascinated by flight and space, you enjoy solving complex challenges and pushing the boundaries of what's possible.",
+        "link" => "aerospace.php"
+    ],
+    "F" => [
+        "title" => "Nuclear Engineering",
+        "description" => "You’re calm under pressure and drawn to powerful science. You enjoy working with energy, safety systems, and atomic-level innovation.",
+        "link" => "nuclear.php"
+    ],
+    "G" => [
+        "title" => "Chemical Engineering",
+        "description" => "You’re inventive and precise, loving the transformation of raw materials into useful products. Chemistry and innovation are your strengths.",
+        "link" => "chemical.php"
+    ],
+    "H" => [
+        "title" => "Civil Engineering",
+        "description" => "You enjoy building things that last. You’re practical, organized, and motivated by improving society’s infrastructure and safety.",
+        "link" => "civil.php"
+    ],
+    "I" => [
+        "title" => "Environmental Engineering",
+        "description" => "You care about nature and want to create a sustainable future. You're thoughtful, scientifically minded, and passionate about the planet.",
+        "link" => "environmental.php"
+    ]
+];
+
+// Get the letter key from URL (e.g., A, B, C...)
+$type_key = $_GET['type'] ?? '';
+$engineer = $engineering_types[$type_key] ?? null;
+
+if ($engineer) {
+    $title = $engineer['title'];
+    $desc = $engineer['description'];
+    $link = $engineer['link'];
+} else {
+    $title = "Unknown Type";
+    $desc = "Description not found.";
+    $link = "quiz.php";
+}
+
+// Fun facts by type
+$fun_facts = [
+    "A" => "Mechanical engineers helped invent the steam engine that powered the Industrial Revolution.",
+    "B" => "Electrical engineers developed the first practical electric light bulb.",
+    "C" => "Computer engineers build the brains behind all your favorite gadgets.",
+    "D" => "Biomedical engineers create lifesaving devices like artificial hearts.",
+    "E" => "Aerospace engineers design rockets that have taken humans to the Moon.",
+    "F" => "Nuclear engineers work with energy that powers cities and medical treatments.",
+    "G" => "Chemical engineers make the materials used in everything from plastics to fuel.",
+    "H" => "Civil engineers build bridges that withstand earthquakes.",
+    "I" => "Environmental engineers help keep our planet clean and safe."
+];
+$fun_fact = $fun_facts[$type_key] ?? "";
+
+// Social share URLs
+$quizUrl = "https://yourdomain.com/quiz.php"; // <-- change to your actual quiz URL
+$shareText = urlencode("I just discovered I'm most like a $title! What type of engineer are you? Take the quiz: $quizUrl");
+$twitterShare = "https://twitter.com/intent/tweet?text=$shareText";
+$fbShare = "https://www.facebook.com/sharer/sharer.php?u=" . urlencode($quizUrl);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Engineer's Map</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            padding: 50x;
+            background-color: #EDEDED;
+            margin: 0;
+            color: #34495e;
+        }
+
+        .result-box {
+            max-width: 800px;
+            
+            margin: 30px auto ;
+            padding: 50px;
+            background-color: white;
+            border: 2px solid #6200ea;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(98, 0, 234, 0.15);
+            text-align: center;
+            
+        }
+
+        .result-box h1 {
+            color: #6200ea;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-size: 2.5rem;
+        }
+
+        .result-box p {
+            font-size: 1.25rem;
+            margin: 15px 0;
+        }
+
+        .button {
+            background-color: #6200ea;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #3700b3;
+        }
+
+        .button.retaken {
+            background-color: #999;
+        }
+
+        .button.retaken:hover {
+            background-color: #666;
+        }
+
+        .share-section {
+            margin-top: 30px;
+        }
+
+        .share-section p {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .share-button {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 30px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .share-twitter {
+            background-color: #1da1f2;
+        }
+
+        .share-twitter:hover {
+            background-color: #0d95e8;
+        }
+
+        .share-facebook {
+            background-color: #3b5998;
+        }
+
+        .share-facebook:hover {
+            background-color: #2d4373;
+        }
+
+        .fun-fact {
+            font-style: italic;
+            margin-top: 20px;
+            color: #555;
+            font-size: 1rem;
+        }
+        .link a{
+            font-weight: 700;
+            font-size: 20px;
+            color: #3700b3;
+        }
+     /* Стиль для меню */
+        body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f2f5;
+      color: #333;
+      font-size: 20px;
+    }
+
+    header {
+      background-color: #6200ea;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      margin-right: 15px;
+    }
+
+    
+     h2, h3 {
+      text-align: center;
+      margin: 10px 0;
+    }
+
+   .hero h1 {
+    width:80%;
+    margin: 0 auto;
+    font-size: 3rem;
+    text-align: center;
+    
+    color: #ffffff;
+    background: linear-gradient(135deg, #6200ea,rgb(155, 40, 250));
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Центрирование блока hero */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 60px 0;
+}
+
+
+    nav.navbar {
+      background-color: #3700b3;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 15px 10px;
+      display: block;
+      transition: background-color 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #4b00c7;
+    }
+        /* Иконка меню */
+        .menu {
+            display: block;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+        }
+
+        /* На мобильных устройствах */
+        @media only screen and (max-width: 800px) {
+            .menu {
+                display: block; /* Иконка меню видна на мобильных */
+            }
+
+            nav ul {
+                display: none; /* Скрыто по умолчанию на мобильных */
+            }
+
+            nav ul.active {
+                display: block; /* Показываем меню, когда оно активировано */
+            }
+        }
+
+        /* На десктопе меню всегда видно */
+        @media only screen and (min-width: 801px) {
+            nav ul {
+                display: flex;
+                justify-content: space-around;
+                position: static;
+                background: transparent;
+                width: auto;
+            }
+
+            .menu {
+                display: none; /* Иконка меню скрыта на десктопе */
+            }
+        }
+        .q{
+            font-size: 20px;
+            text-align: center;
+        }
+        
+      
+
+         
+        h4{
+            font-weight: normal;
+        }
+        .text{
+            font-size: 20px;
+        }
+        
+       
+
+
+        .small-cont {
+            max-width: 1080px;
+            margin: auto;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 70px;
+        }
+
+        
+   
+
+
+        body {
+            background-color: rgb(240, 240, 240);
+            color: rgb(40, 40, 40);
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        h1, h3 {
+            text-align: center;
+            color: rgb(40, 40, 40);
+        }
+ h1{
+    margin-top: 20px;
+ }
+        h2 {
+            margin: 20px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            background-color: #4b00c7;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar li {
+            margin: 0 15px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            display: block;
+            text-align: center;
+        }
+
+        .navbar a:hover {
+            background-color: #3700b3;
+        }
+
+      
+
+        .btn {
+            display: inline-block;
+            background-color: #4b00c7;
+            color: white;
+            padding: 10px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            text-align: center;
+            line-height: 1.5;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn1 {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: #3700b3;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #4b00c7;
+        }
+       .hero {
+   
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 45px;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    margin: 20px 0 10px;
+    word-wrap: break-word;
+}
+
+    </style>
+</head>
+
+<body>
+    
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.png" width="50px" alt="Logo">
+            </div>
+            
+
+            <h2>The Engineer's Map</h2>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <!-- Меню с id для манипуляции через JavaScript -->
+        <ul id="menu-list">
+            <li><a href="site.php">Main page</a></li>
+            <li><a href="quiz.php">Engineering Quiz</a></li>
+            <li><a href="types.php">Engineering Types</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="registration.php">Projects</a></li>
+        </ul>
+    </nav>
+    <div class="result-box">
+        <h1>You are most like a <span><?= htmlspecialchars($title) ?></span>!</h1>
+        <p><?= htmlspecialchars($desc) ?></p>
+
+        <?php if ($fun_fact): ?>
+            <p class="fun-fact">💡 Fun Fact: <?= htmlspecialchars($fun_fact) ?></p>
+        <?php endif; ?>
+
+        <div class="link"><a  href="<?= htmlspecialchars($link) ?>">Uncover more about your engineer type</a></div>
+        <a class="button retaken" href="quiz.php">Retake Quiz</a>
+
+        <div class="share-section">
+            <p>Share your result:</p>
+            <a class="share-button share-twitter" href="<?= $twitterShare ?>" target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a class="share-button share-facebook" href="<?= $fbShare ?>" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 ARUZHAN'SSITE. Все права защищены.</p>
+    </footer>
+
+</body>
+
+</html>
