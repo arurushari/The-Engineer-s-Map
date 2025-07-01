@@ -192,7 +192,7 @@ h4 {
   }
   
   /* Скрываем меню изначально справа за пределами экрана */
-  .menu-list {
+  #menu-list {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -211,7 +211,7 @@ h4 {
   }
 
   /* Активное меню — выезжает вправо */
-  .menu-list.active {
+  #menu-list.active {
     right: 0;
   }
   
