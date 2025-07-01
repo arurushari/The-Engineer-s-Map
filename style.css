@@ -1,24 +1,37 @@
+/* 1. БАЗОВЫЕ СТИЛИ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+html {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  background-color: #EDEDED;
+  color: #282828;
+}
 
- p{
-  margin-left: clamp(8px, 2vw,20px);
-  margin-right: clamp(8px, 2vw,20px);
-
+/* 1.1. Aдаптивный п-контент */
+p {
+  margin: clamp(12px, 1.5vw, 20px) clamp(8px, 2vw, 20px);
   line-height: 1.6;
   font-size: clamp(14px, 4vw, 18px);
- }
-  
-/* Общая обёртка секции */
+}
+
+/* 2. СЕКЦИИ, ТАБЛИЦА, СПИСКИ — без изменений */
 #tema3.tema1 {
   max-width: 960px;
   margin: clamp(20px, 4vw, 40px) auto;
   padding: clamp(16px, 3vw, 30px);
-  
- 
- 
-  box-sizing: border-box;
 }
 
-/* Заголовок */
 #tema3.tema1 h2 {
   font-size: clamp(20px, 5vw, 30px);
   margin-bottom: clamp(16px, 3vw, 30px);
@@ -26,276 +39,153 @@
   color: #34495e;
 }
 
-/* Список */
 .industry-list {
   list-style: none;
   padding: 0;
   margin: 0;
   font-size: clamp(16px, 1.8vw, 20px);
 }
-
-/* Элементы списка */
 .industry-list li {
   background: white;
   border-left: 6px solid #6200ea;
   padding: clamp(12px, 2vw, 20px);
   margin-bottom: clamp(12px, 2vw, 20px);
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(41, 128, 185, 0.1);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(41,128,185,0.1);
+  transition: background-color .3s, box-shadow .3s;
 }
-
-/* Hover эффект */
 .industry-list li:hover {
   background-color: #f9f9ff;
-  box-shadow: 0 6px 20px rgba(41, 128, 185, 0.2);
+  box-shadow: 0 6px 20px rgba(41,128,185,0.2);
 }
-
-/* Заголовки в списке */
 .industry-list strong {
   display: block;
   font-weight: 600;
-  margin-bottom: 0.4rem;
+  margin-bottom: .4rem;
   color: #1c3d5a;
-  font-size: clamp(16px, 2.5vw, 20px);
+  font-size: clamp(16px,2.5vw,20px);
   line-height: 1.4;
 }
 .table-responsive {
   overflow-x: auto;
   width: 100%;
-  margin: clamp(12px, 2vw, 20px) 0;
+  margin: clamp(12px,2vw,20px) 0;
 }
-
 .table-responsive table {
   width: 100%;
-  min-width: 600px; /* не даём таблице ломаться на узких экранах */
+  min-width: 600px;
   border-collapse: collapse;
 }
-
 .table-responsive th,
 .table-responsive td {
-  padding: clamp(10px, 2vw, 15px);
-  font-size: clamp(14px, 2vw, 18px);
+  padding: clamp(10px,2vw,15px);
+  font-size: clamp(14px,2vw,18px);
   text-align: left;
   border-bottom: 1px solid #ccc;
 }
-
-/* Адаптация списка навыков (skills) */
-#tema6 ul li {
-  font-size: clamp(16px, 1.8vw, 20px);
-  margin-bottom: clamp(10px, 1.5vw, 18px);
-  line-height: 1.6;
-}
-
-/* Ссылки на онлайн-курсы */
-#tema7 ul li a {
-  font-size: clamp(16px, 1.8vw, 20px);
-  line-height: 1.6;
-  display: inline-block;
-  margin-bottom: clamp(10px, 1.2vw, 16px);
-}
-
-/* Внутренняя навигация (оглавление в .nav-list) */
+#tema6 ul li,
+#tema7 ul li a,
 .nav-list li a {
-  font-size: clamp(16px, 1.8vw, 20px);
-  margin-bottom: clamp(8px, 1vw, 14px);
-  display: inline-block;
-  line-height: 1.5;
+  font-size: clamp(16px,1.8vw,20px);
+  line-height: 1.6;
+  margin-bottom: clamp(8px,1vw,16px);
 }
-a{
-   
-  font-size: clamp(16px, 1.8vw, 20px);  /* адаптивный шрифт: 16–20px */
-  margin: clamp(12px, 1.5vw, 20px) 0;   /* адаптивный отступ: 12–20px сверху и снизу */
-  line-height: 1.6;                     /* хорошая читаемость */
+a {
+  font-size: clamp(16px,1.8vw,20px);
+  margin: clamp(12px,1.5vw,20px) 0;
+  line-height: 1.6;
 }
 
-                    
+/* 3. Заголовки */
 h1 {
-  font-size: clamp(1.8rem, 5vw, 3rem);
-  margin: clamp(10px, 4vw, 40px) 0;
+  font-size: clamp(1.8rem,5vw,3rem);
+  margin: clamp(10px,4vw,40px) 0;
   line-height: 1.2;
+  text-align: center;
 }
-
 h2 {
-  font-size: clamp(1.5rem, 4vw, 2.4rem);
-  margin: clamp(8px, 3.5vw, 32px) 0;
+  font-size: clamp(1.5rem,4vw,2.4rem);
+  margin: clamp(8px,3.5vw,32px) 0;
   line-height: 1.3;
+  text-align: center;
 }
-
 h3 {
-  font-size: clamp(1.2rem, 3vw, 2rem);
-  margin: clamp(6px, 3vw, 28px) 0;
+  font-size: clamp(1.2rem,3vw,2rem);
+  margin: clamp(6px,3vw,28px) 0;
+  line-height: 1.4;
+  text-align: center;
+}
+h4 {
+  font-size: clamp(1rem,2.5vw,1.5rem);
+  margin: clamp(4px,2.5vw,24px) 0;
   line-height: 1.4;
 }
 
-h4 {
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
-  margin: clamp(4px, 2.5vw, 24px) 0;
-  line-height: 1.4;
-}
+/* 4. Контейнер */
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 20px;
-  box-sizing: border-box;
 }
 
-/* Hero section */
+/* 5. Hero-секция */
 .hero {
   background: white;
   padding: 40px 20px;
   text-align: center;
   border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
 }
-
 .hero h1 {
-  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  font-size: clamp(1.5rem,4vw,2.4rem);
   color: #6200ea;
   margin-bottom: 15px;
   line-height: 1.3;
 }
-
 .hero h3 {
-  font-size: clamp(1rem, 3vw, 1.4rem);
+  font-size: clamp(1rem,3vw,1.4rem);
   color: #34495e;
   margin-top: 10px;
 }
-@media (max-width: 400px) {
-  .hero {
-    padding: 20px 10px;
-  }
- 
-  .hero h1 {
-    font-size: 1.1rem;
-  }
 
-  .container {
-    padding: 10px;
-  }
+/* 6. ХЕДЕР С ЛОГО И МЕНЮ */
+header {
+  background-color: #6200ea;
+  padding: 15px 20px;
 }
-.menu-toggle {
-  display: none; /* скрываем на больших экранах */
-  font-size: 30px;
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo img {
+  height: 40px;
+  width: auto;
+}
+.one-line {
+  flex: 1;
+  margin: 0 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+/* 7. КНОПКА ГАМБУРГЕРА */
+#menu-toggle {
+  display: none;
   background: none;
   border: none;
+  font-size: 30px;
   color: white;
   cursor: pointer;
-  margin-left: auto;
 }
 
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block; /* показываем на мобильных */
-  }
-  
-  /* Скрываем меню изначально справа за пределами экрана */
-  .menu-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background-color: #3700b3;
-    position: fixed;
-    top: 0;
-    right: -50%; /* изначально скрыто справа */
-    width: 50%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    padding-top: 60px; /* отступ сверху под header */
-    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
-    transition: right 0.4s ease;
-    z-index: 1000;
-  }
-
-  /* Активное меню — выезжает вправо */
-  .menu-list.active {
-    right: 0;
-  }
-  
-  .menu-list li {
-    margin: 0;
-    border-bottom: 1px solid #4b00c7;
-  }
-  
-  .menu-list li a {
-    padding: 15px;
-    display: block;
-   border: 1px white solid;
-   margin: clamp(10px, 2vh, 18px) 20px;
-   border-radius: 8px;
-  
-}
-/* Полупрозрачный фон для закрытия меню */
-  .overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 900;
-  }
-
-  .overlay.active {
-    display: block;
-  }
-
-
-    header {
-      background-color:  #6200ea;
-      color: white;
-      padding: 15px 30px;
-      display: flex;
-      align-items: center;
-    }
-
-h1, h2, h3 {
-  text-align: center;
-  margin: 10px 0;
-}
-
-/* Navbar */
+/* 8. НАВИГАЦИЯ ДЛЯ ДЕСКТОПА */
 nav.navbar {
   background-color: #3700b3;
 }
-/* Адаптация на телефонах */
-@media (max-width: 768px) {
-  .header-container {
-    padding: 8px 12px;
-  }
-
-  .header-container h2 {
-    font-size: 18px;
-    margin: 0 auto;
-    text-align: center;
-    flex: none;
-    width: 100%;
-  }
-
-  .logo img {
-    width: 36px;
-    height: auto;
-  }
-}
-
-@media (max-width: 400px) {
-  .header-container h2 {
-    font-size: 16px;
-  }
-
-  .logo img {
-    width: 30px;
-  }
-
-  .menu-toggle {
-    font-size: 24px;
-  }
-
-    
-
-nav ul {
+nav.navbar ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -303,350 +193,64 @@ nav ul {
   justify-content: center;
   flex-wrap: wrap;
 }
-
-nav ul li {
+nav.navbar li {
   margin: 0 15px;
 }
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
+nav.navbar a {
+  display: block;
   padding: 15px 10px;
-  display: block;
-  transition: background-color 0.3s;
-}
-
-nav ul li a:hover {
-  background-color: #4b00c7;
-}
-
-/* Menu Icon */
-.menu {
-  display: block;
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-}
-
-
-.small-cont {
-  max-width: 1080px;
-  margin: auto;
-  padding-left: 25px;
-  padding-right: 25px;
-  box-sizing: border-box;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 70px;
-  gap: 20px;
-}
-
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 10px 20px;
-  color: white;
-}
-.one-line{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-
-.navbar ul {
-  list-style-type: none;
-  background-color: #4b00c7;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.navbar li {
-  margin: 0 15px;
-}
-
-.navbar a {
   color: white;
   text-decoration: none;
-  padding: 15px;
-  display: block;
-  text-align: center;
-  transition: background-color 0.3s;
+  transition: background-color .3s;
 }
-
-.navbar a:hover {
-  background-color: #3700b3;
-}
-
-.btn {
-  display: inline-block;
+nav.navbar a:hover {
   background-color: #4b00c7;
-  color: white;
-  padding: 10px 30px;
-  border-radius: 30px;
-  text-decoration: none;
-  text-align: center;
-  line-height: 1.5;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-  white-space: nowrap;
 }
 
-.btn1 {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+/* 9. МОБИЛЬНОЕ МЕНЮ */
+@media (max-width: 768px) {
+  #menu-toggle {
+    display: block;
+  }
+  nav.navbar ul {
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: #3700b3;
+    padding-top: 60px;
+    padding-left: 20px;
+    transition: right .4s ease;
+    z-index: 999;
+  }
+  nav.navbar ul.active {
+    right: 0;
+  }
+  nav.navbar li {
+    margin: 10px 0;
+  }
+  nav.navbar a {
+    padding: 12px 10px;
+    border: 1px solid white;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  .logo img {
+    height: 36px;
+  }
+  .one-line {
+    font-size: 1rem;
+  }
 }
 
-.btn:hover {
-  background: #3700b3;
-}
-
-
-
-.container h3 {
-  color: #34495e;
-}
-
-.content1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 25px;
-}
-
-.content1 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-#tema6.tema1 {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 30px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  box-sizing: border-box;
-}
-
-#tema6.tema1 .content {
-  display: flex;
-  gap: 25px;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-#tema6.tema1 .photo {
-  flex: 1 1 320px;
-  max-width: 320px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-}
-
-#tema6.tema1 .photo img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-  border-radius: 10px;
-}
-
-#tema6.tema1 .text p {
-  margin-bottom: 20px;
-  color: #444;
-}
-
-#tema6.tema1 .text ul {
-  list-style: inside disc;
-  padding-left: 0;
-  color: #222;
-}
-
-#tema6.tema1 .text ul li {
-  margin-bottom: 14px;
-}
-
-#tema6.tema1 .text ul li strong {
-  color: #6200ea;
-}
-
-.header-container h2 {
-  color: white;
-}
-
-.container1 {
-  max-width: 800px;
-  background: white;
-  padding: 2rem 3rem;
-  border-radius: 16px;
-  box-shadow: 0 12px 28px rgba(44, 62, 80, 0.1);
-  box-sizing: border-box;
-}
-
-h2 {
-  font-weight: 600;
-  color: #34495e;
-  margin-bottom: 1.8rem;
-  text-align: center;
-  letter-spacing: 0.04em;
-}
-
-table {
-  font-size: 20px;
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
-      border-collapse: separate;
-      border-spacing: 0 12px;
-      box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
-      background-color: white;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-thead {
-  background-color: #6200ea;
-  color: white;
-}
-
-thead th {
-  padding: 15px 20px;
-  text-align: left;
-  font-size: 20px;
-}
-
-tbody tr {
-  transition: background-color 0.3s ease;
-  cursor: default;
-}
-
-tbody tr:hover {
-  background-color: #e3f0fe;
-}
-
-tbody td {
-  padding: 15px 20px;
-  vertical-align: top;
-  font-size: 20px;
-  line-height: 1.4;
-}
-
-tbody td.salary {
-  color: #3700b3;
-  white-space: nowrap;
-  width: 140px;
-}
-
-/* Projects carousel */
-.projects {
-  padding: 50px 30px;
-}
-
-.project-carousel {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-  justify-content: space-between;
-  scroll-snap-type: x mandatory;
-}
-
-.card {
-  flex: 1 0 250px;
-  max-width: 500px;
-  background-color: white;
-  border-radius: 10px;
-  scroll-snap-align: start;
-  padding: 15px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  box-sizing: border-box;
-  font-size: 20px;
-}
-
-.card img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.card h3 {
-  margin: 10px 0 5px;
-}
-
-.tema1 h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.photo img{
-  float: left;         /* фото "плывёт" влево */
-  margin: 0 15px 15px 0; /* отступы справа и снизу, чтобы текст не прилипал */
-  max-width: 40%;      /* ограничиваем ширину фото, чтобы текст было место */
-  height: auto;
-  border-radius: 8px;  
-}
-
-
-.photo1 img{
-  float: right;
-  margin: 10px 10px;
-  max-width: 40%;
-  height: auto;
-}
-
-.q {
-  font-size: 20px;
-  text-align: center;
-}
-
-.text {
-  font-size: 20px;
-}
-
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 70px;
-  gap: 20px;
-}
-
-body {
-  background-color: #EDEDED;
-  color: rgb(40, 40, 40);
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  font-size: 20px;
-  line-height: 1.5;
-  box-sizing: border-box;
-}
-
-
-
-
-footer {
-  text-align: center;
-  margin-top: 30px;
-  color: #4b00c7;
-}
-
-/* Responsive adjustments */
+/* 10. ДОПОЛНИТЕЛЬНЫЕ АДАПТИВНЫЕ БЛОКИ */
 @media (max-width: 900px) {
   .row {
-    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
     margin-top: 40px;
   }
   .photo, .photo1 {
@@ -660,7 +264,6 @@ footer {
     align-items: center;
   }
 }
-
 @media (max-width: 600px) {
   body,
   .industry-list,
@@ -671,25 +274,19 @@ footer {
   tbody td {
     font-size: 18px;
   }
-
-  nav ul {
+  nav.navbar ul {
     justify-content: space-around;
   }
-
-  nav ul li {
+  nav.navbar li {
     margin: 0 8px;
   }
-
   .btn {
     padding: 8px 20px;
     font-size: 18px;
   }
-
-
   .project-carousel {
     gap: 10px;
   }
-
   .card {
     flex: 1 0 80%;
     max-width: 100%;
