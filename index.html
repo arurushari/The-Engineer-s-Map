@@ -55,14 +55,14 @@ Learn what engineers do, where they work, what skills they need, and how to choo
     <div class="engineering-list">
   <div class="card">
     <a href="mechanical.php">🛠 Mechanical Engineering</a></div>
-  <div class="card"><a href="electrical.php">⚡ Electrical Engineering</a></div>
-  <div class="card"><a href="computer.php">💻 Computer Engineering</a></div>
-  <div class="card"><a href="biomedical.php">🧬 Biomedical Engineering</a></div>
-  <div class="card"><a href="aerospace.php">🚀 Aerospace Engineering</a></div>
-  <div class="card"><a href="nuclear.php">☢ Nuclear Engineering</a></div>
-  <div class="card"><a href="chemical.php">🧪 Chemical Engineering</a></div>
-  <div class="card"><a href="civil.php">🏗 Civil Engineering</a></div>
-  <div class="card"><a href="environmental.php">🌱 Environmental Engineering</a></div>
+  <div class="card"><a href="electrical.html">⚡ Electrical Engineering</a></div>
+  <div class="card"><a href="computer.html">💻 Computer Engineering</a></div>
+  <div class="card"><a href="biomedical.html">🧬 Biomedical Engineering</a></div>
+  <div class="card"><a href="aerospace.html">🚀 Aerospace Engineering</a></div>
+  <div class="card"><a href="nuclear.html">☢ Nuclear Engineering</a></div>
+  <div class="card"><a href="chemical.html">🧪 Chemical Engineering</a></div>
+  <div class="card"><a href="civil.html">🏗 Civil Engineering</a></div>
+  <div class="card"><a href="environmental.html">🌱 Environmental Engineering</a></div>
   </div>
 
   <div class="q">
@@ -80,6 +80,7 @@ Learn what engineers do, where they work, what skills they need, and how to choo
 
   
 <script>
+  
   const menuToggle = document.getElementById('menu-toggle');
   const menuList = document.getElementById('menu-list');
   const overlay = document.getElementById('overlay');
@@ -107,6 +108,32 @@ Learn what engineers do, where they work, what skills they need, and how to choo
 </script>
 
 <style>
+ .engineering-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 30px;
+  text-decoration: none;
+}
+
+.card {
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 16px 24px;
+  font-size: 1.1rem;
+  background-color: #f9f9f9;
+  transition: 0.3s;
+  cursor: pointer;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.05)
+ 
+}
+
+.card:hover {
+  border-color: #555;
+  background-color: #fff;
+  transform: scale(1.03);
+}
 /* Общая обёртка секции */
 #tema3.tema1 {
   max-width: 960px;
