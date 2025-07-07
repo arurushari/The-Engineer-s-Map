@@ -221,7 +221,7 @@ header {
 
 /* 8. НАВИГАЦИЯ ДЛЯ ДЕСКТОПА */
 nav.navbar {
-  background-color: #3700b3;
+  background-color:  #3700b3;
 }
 nav.navbar ul {
   list-style: none;
@@ -319,9 +319,26 @@ nav.navbar a:hover {
     margin: 0 8px;
   }
   .btn {
-    padding: 8px 20px;
-    font-size: 18px;
-  }
+            display: inline-block;
+            background-color: #4b00c7;
+            color: white;
+            padding: 10px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            text-align: center;
+            line-height: 1.5;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn1 {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: #3700b3;
+        }
   .project-carousel {
     gap: 10px;
   }
