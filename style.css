@@ -17,7 +17,11 @@ body {
   background-color: #EDEDED;
   color: #282828;
 }
-
+.photo img{
+  float: left;
+  margin-left: clamp(8px, 5vw, 40px);
+  margin-bottom: clamp(8px,5vw,40px);
+}
 /* 1.1. Aдаптивный п-контент */
 p {
   margin: clamp(12px, 1.5vw, 20px) clamp(8px, 2vw, 20px);
@@ -197,13 +201,7 @@ h4 {
 }
 
 /* 5. Hero-секция */
-.hero {
-  background: white;
-  padding: 40px 20px;
-  text-align: center;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-}
+
 .hero h1 {
   font-size: clamp(1.5rem,4vw,2.4rem);
   color: #6200ea;
@@ -216,32 +214,6 @@ h4 {
   margin-top: 10px;
 }
 
-/* 6. ХЕДЕР С ЛОГО И МЕНЮ */
-header {
-  background-color: #6200ea;
-  padding: 15px 20px;
-}
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.header-container h2{
-  color: white;
-  text-align: center;
-}
-.logo img {
-  height: 40px;
-  width: auto;
-}
-.one-line {
-  flex: 1;
-  margin: 0 20px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: center;
-}
 
 /* 7. КНОПКА ГАМБУРГЕРА */
 #menu-toggle {
@@ -254,10 +226,58 @@ header {
 }
 
 /* 8. НАВИГАЦИЯ ДЛЯ ДЕСКТОПА */
-nav.navbar {
-  background-color:  #3700b3;
+.header-container h2 {
+  color: white;
 }
-nav.navbar ul {
+
+.container1 {
+  max-width: clamp(300px, 80vw, 800px);
+  background: white;
+  padding: clamp(1rem, 3vw, 3rem);
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(44, 62, 80, 0.1);
+}
+
+header {
+  background-color: #6200ea;
+  color: white;
+  padding: clamp(10px, 2vw, 30px) clamp(15px, 3vw, 30px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo img {
+  margin-right: clamp(10px, 2vw, 15px);
+  max-height: clamp(30px, 5vw, 40px);
+  width: auto;
+}
+
+h1, h2, h3 {
+  text-align: center;
+  margin: clamp(5px, 1vw, 10px) 0;
+}
+
+.hero {
+  background: white;
+  padding: clamp(20px, 5vw, 40px) clamp(10px, 3vw, 20px);
+  text-align: center;
+  margin: clamp(30px, 8vw, 45px) 0 clamp(5px, 2vw, 10px);
+}
+
+.hero h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  margin: clamp(10px, 3vw, 20px) 0 clamp(5px, 2vw, 10px);
+  word-wrap: break-word;
+}
+
+nav.navbar {
+  background-color: #3700b3;
+  width: 100%;
+}
+
+nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -265,19 +285,65 @@ nav.navbar ul {
   justify-content: center;
   flex-wrap: wrap;
 }
-nav.navbar li {
-  margin: 0 15px;
+
+nav ul li {
+  margin: 0 clamp(10px, 3vw, 15px);
 }
-nav.navbar a {
-  display: block;
-  padding: 15px 10px;
+
+nav ul li a {
   color: white;
   text-decoration: none;
-  transition: background-color .3s;
+  padding: clamp(10px, 3vw, 15px) clamp(5px, 2vw, 10px);
+  display: block;
+  transition: background-color 0.3s;
 }
-nav.navbar a:hover {
+
+nav ul li a:hover {
   background-color: #4b00c7;
 }
+
+/* Иконка меню */
+.menu {
+  display: none;
+  cursor: pointer;
+  width: clamp(20px, 5vw, 30px);
+  height: clamp(20px, 5vw, 30px);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: clamp(5px, 2vw, 10px) clamp(10px, 3vw, 20px);
+  color: white;
+}
+
+.navbar ul {
+  list-style-type: none;
+  background-color: #4b00c7;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar li {
+  margin: 0 clamp(10px, 3vw, 15px);
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: clamp(10px, 3vw, 15px);
+  display: block;
+  text-align: center;
+}
+
+.navbar a:hover {
+  background-color: #3700b3;
+}
+
+
 
 /* 9. МОБИЛЬНОЕ МЕНЮ */
 @media (max-width: 768px) {
