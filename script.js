@@ -5,6 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const menuList = document.getElementById("menu-list");
 
     toggleButton.addEventListener("click", function () {
-        menuList.classList.toggle("active");
+        menuList.classList.toggle("open");
     });
 });
