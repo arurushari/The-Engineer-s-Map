@@ -66,23 +66,50 @@ p {
   font-size: clamp(16px,2.5vw,20px);
   line-height: 1.4;
 }
-.table-responsive {
-  overflow-x: auto;
-  width: 100%;
-  margin: clamp(12px,2vw,20px) 0;
-}
-.table-responsive table {
-  width: 100%;
-  min-width: 600px;
-  border-collapse: collapse;
-}
-.table-responsive th,
-.table-responsive td {
-  padding: clamp(10px,2vw,15px);
+table {
+  font-size: 20px;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      border-collapse: separate;
+      border-spacing: 0 12px;
+      box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    thead {
+      background-color: #6200ea;
+      color: white;
+     
+    }
+    thead th {
+       padding: clamp(10px,2vw,15px);
+       font-size: clamp(14px,2vw,18px);
+       text-align: left;
+    
+    }
+    tbody tr {
+      transition: background-color 0.3s ease;
+      cursor: default;
+    }
+    tbody tr:hover {
+      background-color: #e3f0fe;
+    }
+    tbody td {
+     padding: clamp(10px,2vw,15px);
   font-size: clamp(14px,2vw,18px);
-  text-align: left;
-  border-bottom: 1px solid #ccc;
-}
+      vertical-align: top;
+    
+      line-height: 1.4;
+    }
+    tbody td.salary {
+      
+      color: #3700b3;
+      white-space: nowrap;
+      width: 140px;
+    }
+
 #tema6 ul li,
 #tema7 ul li a,
 .nav-list li a {
@@ -195,6 +222,10 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.header-container h2{
+  color: white;
+  text-align: center;
 }
 .logo img {
   height: 40px;
