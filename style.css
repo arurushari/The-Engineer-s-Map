@@ -90,6 +90,31 @@ p {
   line-height: 1.6;
   margin-bottom: clamp(8px,1vw,16px);
 }
+
+
+.card {
+  flex: 1 0 250px; 
+  max-width: 500px; 
+  background-color: white;
+  border-radius: 10px;
+  scroll-snap-align: start;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  margin: 10px 0 5px;
+}
+
+
 a {
   font-size: clamp(16px,1.8vw,20px);
   margin: clamp(12px,1.5vw,20px) 0;
@@ -287,8 +312,5 @@ nav.navbar a:hover {
   .project-carousel {
     gap: 10px;
   }
-  .card {
-    flex: 1 0 80%;
-    max-width: 100%;
-  }
+  
 }
