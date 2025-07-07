@@ -91,6 +91,19 @@ p {
   margin-bottom: clamp(8px,1vw,16px);
 }
 
+   .projects {
+  padding: 50px 30px;
+}
+
+.project-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  
+  justify-content: space-between; /* равномерное распределение */
+  scroll-snap-type: x mandatory;
+}
 
 .card {
   flex: 1 0 250px; 
