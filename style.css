@@ -20,6 +20,7 @@ body {
 .photo img{
   float: left;
   margin: clamp(8px, 5vw, 40px);
+}
 
   #overlay {
   position: fixed;
@@ -36,7 +37,6 @@ body {
   display: block;
 }
 
-}
 /* 1.1. Aдаптивный п-контент */
 p {
   margin: clamp(12px, 1.5vw, 20px) clamp(8px, 2vw, 20px);
