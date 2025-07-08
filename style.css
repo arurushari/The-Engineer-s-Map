@@ -390,7 +390,7 @@ nav ul li a:hover {
   }
   nav.navbar a {
     padding: clamp(8px, 1.5vw, 12px) clamp(10px, 2vw, 20px);
-    border: 1px solid white;
+    
     border-radius: 8px;
     margin-bottom: clamp(5px, 1.5vw, 14px);
     display: inline-block;
