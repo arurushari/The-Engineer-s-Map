@@ -21,51 +21,21 @@ body {
   float: left;
   margin: clamp(8px, 5vw, 40px);
 }
-  /* Навигация */
-    nav.navbar {
-      position: relative;
-    }
 
-    nav.navbar ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 20px;
-    }
+  #overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  z-index: 998;
+}
 
-    nav.navbar li {
-      margin: 0;
-    }
-
-    nav.navbar a {
-      color: white;
-      text-decoration: none;
-      padding: 8px 12px;
-      font-weight: 600;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-    }
-
-    nav.navbar a:hover,
-    nav.navbar a:focus {
-      background-color: #4b00c7;
-      outline: none;
-    }
-
-    /* Мобильное меню */
-    #overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: 998;
-    }
+#overlay.active {
+  display: block;
+}
 
 /* 1.1. Aдаптивный п-контент */
 p {
@@ -318,6 +288,35 @@ h1, h2, h3 {
   word-wrap: break-word;
 }
 
+nav.navbar {
+  background-color: #3700b3;
+  width: 100%;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin: 0 clamp(10px, 3vw, 15px);
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: clamp(10px, 3vw, 15px) clamp(5px, 2vw, 10px);
+  display: block;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #4b00c7;
+}
 
 /* Иконка меню */
 .menu {
@@ -333,6 +332,31 @@ h1, h2, h3 {
   justify-content: flex-start;
   padding: clamp(5px, 2vw, 10px) clamp(10px, 3vw, 20px);
   color: white;
+}
+
+.navbar ul {
+  list-style-type: none;
+  background-color: #4b00c7;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar li {
+  margin: 0 clamp(10px, 3vw, 15px);
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: clamp(10px, 3vw, 15px);
+  display: block;
+  text-align: center;
+}
+
+.navbar a:hover {
+  background-color: #3700b3;
 }
 
 
@@ -355,18 +379,23 @@ h1, h2, h3 {
     padding-left: 20px;
     transition: right .4s ease;
     z-index: 999;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   }
   nav.navbar ul.active {
     right: 0;
   }
   nav.navbar li {
-    margin: 10px 0;
+    margin: clamp(6px, 2vw, 16px) 0;
   }
   nav.navbar a {
-    padding: 12px 10px;
+    padding: clamp(8px, 1.5vw, 12px) clamp(10px, 2vw, 20px);
     border: 1px solid white;
     border-radius: 8px;
-    margin-bottom: 10px;
+    margin-bottom: clamp(5px, 1.5vw, 14px);
+    display: inline-block;
+    color: white;
+    border-bottom: 1px solid white;
   }
   .logo img {
     height: 36px;
