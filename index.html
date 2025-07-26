@@ -78,34 +78,8 @@ Learn what engineers do, where they work, what skills they need, and how to choo
         <p>&copy; 2025 ARUZHAN'SSITE. Все права защищены.</p>
     </footer>
 
-  
-<script>
-  
-  const menuToggle = document.getElementById('menu-toggle');
-  const menuList = document.getElementById('menu-list');
-  const overlay = document.getElementById('overlay');
 
-  function toggleMenu() {
-    menuList.classList.toggle('active');
-    overlay.classList.toggle('active');
-  }
-
-  menuToggle.addEventListener('click', toggleMenu);
-
-  // Закрываем меню при клике на оверлей
-  overlay.addEventListener('click', () => {
-    menuList.classList.remove('active');
-    overlay.classList.remove('active');
-  });
-
-  // Закрываем меню при клике на пункт меню
-  menuList.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      menuList.classList.remove('active');
-      overlay.classList.remove('active');
-    });
-  });
-</script>
+<script src="script.js"></script>
 
 <style>
  .engineering-list {
